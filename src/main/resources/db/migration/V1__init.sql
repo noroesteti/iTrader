@@ -32,7 +32,7 @@ ALTER TABLE 'tb_usuario'
 
 
 CREATE TABLE IF NOT EXISTS 'tb_conta'(
-   'id_conta' int NOT NULL AUTO_INCREMENT,   
+   'id_conta' int NOT NULL,   
    'id_usuario' bigint(20) NOT NULL,  
    'id_corretora' bigint(20) NOT NULL,
    'cd_conta' bigint(20) NOT NULL,   
