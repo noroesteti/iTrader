@@ -1,6 +1,4 @@
-DROP TABLE `tb_conta`;
-DROP TABLE `tb_usuario`;
-DROP TABLE `tb_corretora`;
+
 
 CREATE TABLE IF NOT EXISTS `tb_corretora` (
  `id` bigint(20) NOT NULL,
