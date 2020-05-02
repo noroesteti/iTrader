@@ -17,16 +17,17 @@ import com.noroesteti.iTrader.api.entities.Usuario;
 @ActiveProfiles("test")
 public class UsuarioRepositoryTest {
 	
+	private static final String Email = "brunocalcagno@cvccorp.com.br";
+	
 	@Autowired
 	private UsuarioRepository UsuarioRepository;
 	
-	private static final Long Id = (long) 1;
 	
 	@Before
 	public void setUp() throws Exception {
 		Usuario usuario = new Usuario();
-		usuario.setUsuario("Bruno Calcagno");
-		usuario.setIdUsuario(Id);
+		usuario.setUsuario("Bruno Calcagno");	
+		usuario.setEmail(Email);
 		this.UsuarioRepository.save(usuario);
 	}
 	
@@ -37,7 +38,7 @@ public class UsuarioRepositoryTest {
 	
 	@Test
 	public void testBuscaporIdUsuario() {
-		Usuario usuario = this.UsuarioRepository.findByidUsuario(Id);
-		assertEquals(Id,usuario.getIdUsuario());
+		Usuario usuario = this.UsuarioRepository.findByEmail(Email);
+		assertEquals(Email,usuario.getEmail());
 	}
 }

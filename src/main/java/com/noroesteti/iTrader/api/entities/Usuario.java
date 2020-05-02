@@ -27,7 +27,7 @@ public class Usuario implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -6114605532684663646L;
-	private Long idUsuario;	
+	private Long Id;	
 	private String nomeUsuario;
 	private PerfilEnum dsPerfil;
 	private String dsEmail;
@@ -40,15 +40,16 @@ public class Usuario implements Serializable{
 	
 	
 	@Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)	
-
-	@Column (name="id_usuario",nullable= false)
-	public Long getIdUsuario() {
-		return idUsuario;
+    @GeneratedValue(strategy=GenerationType.AUTO)	
+	@Column (name="id",nullable= false)
+	public Long getId() {
+		return Id;
 	}
-	public void setIdUsuario(Long idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setId(Long id) {
+		Id = id;
 	}
+	
+	
 		
 	
 	@Column (name="ds_usuario",nullable = false)
@@ -69,11 +70,11 @@ public class Usuario implements Serializable{
 	}
 	
 	@Column(name="ds_email",nullable=true)
-	public String getDsEmail() {
+	public String getEmail() {
 		return dsEmail;
 	}
-	public void setDsEmail(String dsEmail) {
-		this.dsEmail = dsEmail;
+	public void setEmail(String Email) {
+		this.dsEmail = Email;
 	}
 	
 	@Column(name="ds_senha",nullable=true)
@@ -118,6 +119,7 @@ public class Usuario implements Serializable{
 	public String toString() {
 	return "";
 	}
+	
 
 	
 	

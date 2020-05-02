@@ -9,5 +9,5 @@ import com.noroesteti.iTrader.api.entities.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 
 	@Transactional(readOnly=true)
-	Usuario findByidUsuario(Long idUsuario);
+	Usuario findByEmail(String email);
 }
