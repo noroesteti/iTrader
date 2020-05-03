@@ -40,5 +40,7 @@ public class UsuarioRepositoryTest {
 	public void testBuscaporIdUsuario() {
 		Usuario usuario = this.UsuarioRepository.findByEmail(Email);
 		assertEquals(Email,usuario.getEmail());
+		System.out.println(usuario.getEmail());
+		System.out.println("bruno");
 	}
 }

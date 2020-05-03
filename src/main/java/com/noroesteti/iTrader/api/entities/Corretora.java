@@ -5,8 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,29 +12,19 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
-import com.noroesteti.iTrader.api.enums.PerfilEnum;
-
-
-
 @Entity
-@Table(name = "tb_usuario")
-public class Usuario implements Serializable{
-
+@Table(name = "tb_corretora")
+public class Corretora implements Serializable{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -6114605532684663646L;
-	private Long Id;	
-	private String nomeUsuario;
-	private PerfilEnum dsPerfil;
-	private String dsEmail;
-	private String dsSenha;	
+	private static final long serialVersionUID = 3857855487239036652L;
+	private Long Id;
+	private Long cdCorretora;
+	private String dsCorretora;	
 	private Date dataAtualizacao;
 	private Date dataCriacao;
-	
-	
-	
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)	
@@ -47,41 +35,20 @@ public class Usuario implements Serializable{
 	public void setId(Long id) {
 		Id = id;
 	}
-	
-	
-		
-	
-	@Column (name="ds_usuario",nullable = false)
-	public String getUsuario() {
-		return nomeUsuario;
+
+	@Column (name="cd_corretora",nullable= false)
+	public Long getCdCorretora() {
+		return cdCorretora;
 	}
-	public void setUsuario(String usuario) {
-		this.nomeUsuario = usuario;
+	public void setCdCorretora(Long cdCorretora) {
+		this.cdCorretora = cdCorretora;
 	}
-	
-	@Enumerated(EnumType.STRING)
-	@Column(name="ds_perfil",nullable=true)
-	public PerfilEnum getDsPerfil() {
-		return dsPerfil;
+	@Column (name="ds_corretora",nullable= false)
+	public String getDsCorretora() {
+		return dsCorretora;
 	}
-	public void setDsPerfil(PerfilEnum dsPerfil) {
-		this.dsPerfil = dsPerfil;
-	}
-	
-	@Column(name="ds_email",nullable=true)
-	public String getEmail() {
-		return dsEmail;
-	}
-	public void setEmail(String Email) {
-		this.dsEmail = Email;
-	}
-	
-	@Column(name="ds_senha",nullable=true)
-	public String getDsSenha() {
-		return dsSenha;
-	}
-	public void setDsSenha(String dsSenha) {
-		this.dsSenha = dsSenha;
+	public void setDsCorretora(String dsCorretora) {
+		this.dsCorretora = dsCorretora;
 	}
 	
 	@Column (name="dt_atualizacao",nullable= false)
@@ -119,7 +86,6 @@ public class Usuario implements Serializable{
 	return "";
 	}
 	
-
 	
 	
 }
