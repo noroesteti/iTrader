@@ -36,7 +36,7 @@ public class CorretoraRepositoryTest {
 	
 	@Test
 	public void testBuscaporNomeCorretora() {
-		Corretora corretora = this.CorretoraRepository.findByName(nomeCorretora);
+		Corretora corretora = this.CorretoraRepository.findBydsCorretora(nomeCorretora);
 		assertEquals(nomeCorretora,corretora.getDsCorretora());
 	}
 

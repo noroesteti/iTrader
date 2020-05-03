@@ -8,5 +8,5 @@ import com.noroesteti.iTrader.api.entities.Corretora;
 
 public interface CorretoraRepository extends JpaRepository<Corretora,Long>{
 	@Transactional(readOnly=true)
-	Corretora findByName(String corretora);
-}
+	Corretora findBydsCorretora(String corretora);
+	}
