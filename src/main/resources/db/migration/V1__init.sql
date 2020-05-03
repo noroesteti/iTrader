@@ -1,9 +1,4 @@
-/*
-drop table `tb_usuario_conta`;
-drop table `tb_conta`;
-drop table `tb_usuario`;
-drop table `tb_corretora`;
-
+  
 CREATE TABLE IF NOT EXISTS `tb_corretora` (
  `id` bigint(20) NOT NULL,
  `cd_corretora` bigint(20) NOT NULL,
@@ -69,7 +64,7 @@ ALTER TABLE `tb_conta`
 
 CREATE TABLE IF NOT EXISTS `tb_usuario_conta` (
    `usuario_id` bigint(20) NOT NULL,   
-   `conta_id` bigint(20 NOT NULL,  
+   `conta_id` bigint(20) NOT NULL,  
    `dt_atualizacao` datetime NOT NULL,
    `dt_criacao` datetime NOT NULL
  );
@@ -80,4 +75,3 @@ ADD CONSTRAINT `FK1_usuario_conta` FOREIGN KEY (`usuario_id`) REFERENCES `tb_usu
 ALTER TABLE `tb_usuario_conta`
 ADD CONSTRAINT `FK2_conta` FOREIGN KEY (`conta_id`) REFERENCES `tb_conta` (`id`);
 
-*/
