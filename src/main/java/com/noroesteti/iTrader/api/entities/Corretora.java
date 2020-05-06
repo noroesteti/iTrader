@@ -54,8 +54,8 @@ public class Corretora implements Serializable{
 	public int getCdCorretora() {
 		return cdCorretora;
 	}
-	public void setCdCorretora(int cdCorretora) {
-		this.cdCorretora = cdCorretora;
+	public void setCdCorretora(int cdCorretora2) {
+		this.cdCorretora = cdCorretora2;
 	}
 	@Column (name="ds_corretora",nullable= false)
 	public String getDsCorretora() {
