@@ -4,40 +4,57 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
+
+
 @Entity
-@Table(name = "tb_corretora")
-public class Corretora implements Serializable{
+@Table(name="tb_conta")
+public class Conta implements Serializable{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 3857855487239036652L;
+	private static final long serialVersionUID = -2111255414021766830L;
 	private Long Id;
-	private int cdCorretora;
-	private String dsCorretora;	
+	private Long cdConta;
+	private Long cdContaDigito;
 	private Date dataAtualizacao;
 	private Date dataCriacao;
-	private List<Conta> contas;
+	private Usuario Usuario;
+	private Corretora Corretora;
 	
-	@OneToMany(mappedBy = "tb_corretora", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	public List<Conta> getContas() {
-		return contas;
+	@ManyToOne(fetch = FetchType.EAGER)
+	public Usuario getUsuario() {
+		return Usuario;
 	}
-	public void setContas(List<Conta> contas) {
-		this.contas = contas;
+
+	public void setUsuario(Usuario usuario) {
+		this.Usuario = usuario;
+	}	
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	public Corretora getCorretora() {
+		return Corretora;
 	}
+
+	public void setCorretora(Corretora corretora) {
+		this.Corretora = corretora;
+	}	
+	
 	
 	
 	@Id
@@ -49,22 +66,22 @@ public class Corretora implements Serializable{
 	public void setId(Long id) {
 		Id = id;
 	}
-
-	@Column (name="cd_corretora",nullable= false)
-	public int getCdCorretora() {
-		return cdCorretora;
+	@Column (name="cd_conta",nullable= false)
+	public Long getCdConta() {
+		return cdConta;
 	}
-	public void setCdCorretora(int cdCorretora) {
-		this.cdCorretora = cdCorretora;
+	public void setCdConta(Long cdConta) {
+		this.cdConta = cdConta;
 	}
-	@Column (name="ds_corretora",nullable= false)
-	public String getDsCorretora() {
-		return dsCorretora;
+	@Column (name="cd_conta_digito",nullable= false)
+	public Long getCdContaDigito() {
+		return cdContaDigito;
 	}
-	public void setDsCorretora(String dsCorretora) {
-		this.dsCorretora = dsCorretora;
+	public void setCdContaDigito(Long cdContaDigito) {
+		this.cdContaDigito = cdContaDigito;
 	}
 	
+
 	@Column (name="dt_atualizacao",nullable= false)
 	public Date getdataAtualizacao() {
 		return dataAtualizacao;
@@ -101,5 +118,7 @@ public class Corretora implements Serializable{
 	}
 	
 	
+	
+
 	
 }
