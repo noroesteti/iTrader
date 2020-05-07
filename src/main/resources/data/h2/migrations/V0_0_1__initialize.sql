@@ -4,7 +4,7 @@
 */
   
 CREATE TABLE IF NOT EXISTS `tb_corretora` (
- `id` GENERATED BIGINT NOT NULL auto_increment,
+ `id` BIGINT NOT NULL auto_increment,
  `cd_corretora` BIGINT NOT NULL,
  `ds_corretora` varchar(60) NOT NULL,
  `dt_atualizacao` datetime NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `tb_corretora` (
 
 
 CREATE TABLE IF NOT EXISTS `tb_usuario` (
-   `id` GENERATED BIGINT  NOT NULL auto_increment,   
+   `id` BIGINT  NOT NULL auto_increment,   
    `ds_usuario` varchar(60) NOT NULL,
    `ds_perfil` VARCHAR(100) DEFAULT NULL,
    `ds_email` VARCHAR(200) DEFAULT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
 
 
 CREATE TABLE IF NOT EXISTS `tb_conta`(
-   `id` GENERATED BIGINT NOT NULL auto_increment,   
+   `id` BIGINT NOT NULL auto_increment,   
    `usuario_id` BIGINT NOT NULL,  
    `corretora_id` BIGINT NOT NULL,
    `cd_conta` BIGINT NOT NULL,   
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `tb_conta`(
    `dt_criacao` datetime NOT NULL,
    PRIMARY KEY (`id`),
    CONSTRAINT `fk2_corretora_conta` FOREIGN KEY (`corretora_id`) REFERENCES `tb_corretora` (`id`),
-    ADD CONSTRAINT `fk2_usuario_conta` FOREIGN KEY (`usuario_id`) REFERENCES `tb_usuario` (`id`)
+    CONSTRAINT `fk2_usuario_conta` FOREIGN KEY (`usuario_id`) REFERENCES `tb_usuario` (`id`)
  );
  
   

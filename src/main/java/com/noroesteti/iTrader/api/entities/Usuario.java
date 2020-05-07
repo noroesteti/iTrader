@@ -40,7 +40,7 @@ public class Usuario implements Serializable{
 	private Date dataCriacao;
 	private List<Conta> contas;
 	
-	@OneToMany(mappedBy = "tb_usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	public List<Conta> getContas() {
 		return contas;
 	}

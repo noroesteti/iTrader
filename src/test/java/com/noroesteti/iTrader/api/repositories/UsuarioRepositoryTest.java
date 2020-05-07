@@ -11,6 +11,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.noroesteti.iTrader.api.entities.Usuario;
+import com.noroesteti.iTrader.api.enums.PerfilEnum;
+import com.noroesteti.iTrader.api.utils.PasswordUtils;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,8 +29,10 @@ public class UsuarioRepositoryTest {
 	public void setUp() throws Exception {
 		Usuario usuario = new Usuario();
 		usuario.setUsuario("Bruno Calcagno");	
-		usuario.setEmail(Email);
-		this.UsuarioRepository.save(usuario);
+		usuario.setEmail(Email);		
+	    usuario.setDsPerfil(PerfilEnum.ROLE_ADMIN);
+	    usuario.setDsSenha(PasswordUtils.gerarBCrypt("123456"));
+	    this.UsuarioRepository.save(usuario);
 	}
 	
 	public final void tearDown() {

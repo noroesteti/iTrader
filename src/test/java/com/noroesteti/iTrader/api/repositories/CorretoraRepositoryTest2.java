@@ -16,7 +16,7 @@ import com.noroesteti.iTrader.api.entities.Corretora;
 public class CorretoraRepositoryTest2 {
 	
 	private static final String nomeCorretora = "Xp Investimentos";
-	private int cdCorretora =  3;
+	private Long cdCorretora =  (long) 3;
 	
 	@Autowired
 	private CorretoraRepository CorretoraRepository;

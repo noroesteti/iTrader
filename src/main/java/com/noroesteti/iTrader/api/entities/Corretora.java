@@ -25,13 +25,13 @@ public class Corretora implements Serializable{
 	 */
 	private static final long serialVersionUID = 3857855487239036652L;
 	private Long Id;
-	private int cdCorretora;
+	private Long cdCorretora;
 	private String dsCorretora;	
 	private Date dataAtualizacao;
 	private Date dataCriacao;
 	private List<Conta> contas;
 	
-	@OneToMany(mappedBy = "tb_corretora", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "corretora", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	public List<Conta> getContas() {
 		return contas;
 	}
@@ -51,10 +51,10 @@ public class Corretora implements Serializable{
 	}
 
 	@Column (name="cd_corretora",nullable= false)
-	public int getCdCorretora() {
+	public Long getCdCorretora() {
 		return cdCorretora;
 	}
-	public void setCdCorretora(int cdCorretora2) {
+	public void setCdCorretora(Long cdCorretora2) {
 		this.cdCorretora = cdCorretora2;
 	}
 	@Column (name="ds_corretora",nullable= false)
